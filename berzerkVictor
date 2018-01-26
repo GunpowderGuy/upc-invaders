@@ -1,1 +1,346 @@
+#include<iostream>
+#include<conio.h>
+#include<stdio.h>
+#include<stdlib.h>
 
+using namespace std;
+using namespace System;
+
+struct Personaje
+{
+	int f, c;
+	char r;
+};
+struct Enemigo
+{
+	int f, c;
+	char o;
+};
+struct Llaves
+{
+	int f, c;
+	char k;
+};
+struct Salida
+{
+	int f, c;
+	char q;
+};
+
+void Borrar_Personaje(Personaje *mipersonaje)
+{
+	Console::SetCursorPosition(mipersonaje->c, mipersonaje->f);
+	cout << " ";
+}
+void Borrar_Enemigo(Enemigo *elenemigo)
+{
+	Console::SetCursorPosition(elenemigo->c, elenemigo->f);
+	cout << " ";
+}
+void Borrar_Llaves(int Tablero[25][80], Llaves *lasllaves, Personaje *mipersonaje)
+{
+	int contador_de_llaves;
+	contador_de_llaves++;
+
+
+	if (mipersonaje->f == lasllaves->f && lasllaves->c == mipersonaje->c)
+
+	{
+		lasllaves = 0;
+	}
+}
+
+void Mostar_Salida(Salida *lasalida)
+{
+	Console::SetCursorPosition(lasalida->c, lasalida->f);
+	Console::ForegroundColor = ConsoleColor::Blue;
+	cout << lasalida->q;
+}
+
+void Mostar_llaves(Llaves *lasllaves)
+{
+	Console::SetCursorPosition(lasllaves->c, lasllaves->f);
+	Console::ForegroundColor = ConsoleColor::DarkYellow;
+	cout << lasllaves->k;
+}
+void Funciones_de_la__llave(Llaves *lasllaves, Salida *lasalida, Personaje *mipersonaje, bool Conseguir_llaves)
+{
+	if (mipersonaje->f == lasllaves->f && lasalida->c == mipersonaje->c)
+	{
+	}
+}
+void Mover_Personaje(int Tablero[25][80], Personaje *mipersonaje, char tecla)
+{
+	if (tecla == 'A' || tecla == 'a')
+		if (Tablero[mipersonaje->f][mipersonaje->c - 1] == 0)
+			mipersonaje->c--;
+	if (tecla == 'D' || tecla == 'd')
+		if (Tablero[mipersonaje->f][mipersonaje->c + 1] == 0)
+			mipersonaje->c++;
+	if (tecla == 'W' || tecla == 'w')
+		if (Tablero[mipersonaje->f - 1][mipersonaje->c] == 0)
+			mipersonaje->f--;
+	if (tecla == 'S' || tecla == 's')
+		if (Tablero[mipersonaje->f + 1][mipersonaje->c] == 0)
+			mipersonaje->f++;
+}
+void Movimiento_Enemigo(int Tablero[25][80], Enemigo *elenemigo, bool &enemigo_arriba)
+{
+
+	if (Tablero[elenemigo->f + 1][elenemigo->c] == 0 && enemigo_arriba == false)
+		elenemigo->f++;
+	else if (Tablero[elenemigo->f - 1][elenemigo->c] == 0) {
+		enemigo_arriba = true;
+		elenemigo->f--;
+	}
+	else {
+		enemigo_arriba = false;
+	}
+}
+void Movimiento_Enemigo2(int Tablero[25][80], Enemigo *enemigo2, bool &enemigo_arriba2)
+{
+
+	if (Tablero[enemigo2->f + 1][enemigo2->c] == 0 && enemigo_arriba2 == false)
+		enemigo2->f++;
+	else if (Tablero[enemigo2->f - 1][enemigo2->c] == 0) {
+		enemigo_arriba2 = true;
+		enemigo2->f--;
+	}
+	else {
+		enemigo_arriba2 = false;
+	}
+}
+void Movimiento_Enemigo3(int Tablero[25][80], Enemigo *enemigo3, bool &enemigo_arriba3)
+{
+
+	if (Tablero[enemigo3->f + 1][enemigo3->c] == 0 && enemigo_arriba3 == false)
+		enemigo3->f++;
+	else if (Tablero[enemigo3->f - 1][enemigo3->c] == 0) {
+		enemigo_arriba3 = true;
+		enemigo3->f--;
+	}
+	else {
+		enemigo_arriba3 = false;
+	}
+}
+void Movimiento_Enemigo4(int Tablero[25][80], Enemigo *enemigo4, bool &enemigo_arriba4)
+{
+
+	if (Tablero[enemigo4->f + 1][enemigo4->c] == 0 && enemigo_arriba4 == false)
+		enemigo4->f++;
+	else if (Tablero[enemigo4->f - 1][enemigo4->c] == 0) {
+		enemigo_arriba4 = true;
+		enemigo4->f--;
+	}
+	else {
+		enemigo_arriba4 = false;
+	}
+}
+void Movimiento_Enemigo5(int Tablero[25][80], Enemigo *enemigo5, bool &enemigo_arriba5)
+{
+
+	if (Tablero[enemigo5->f + 1][enemigo5->c] == 0 && enemigo_arriba5 == false)
+		enemigo5->f++;
+	else if (Tablero[enemigo5->f - 1][enemigo5->c] == 0) {
+		enemigo_arriba5 = true;
+		enemigo5->f--;
+	}
+	else {
+		enemigo_arriba5 = false;
+	}
+}
+void Movimiento_Enemigo6(int Tablero[25][80], Enemigo *enemigo6, bool &enemigo_arriba6)
+{
+
+	if (Tablero[enemigo6->f + 1][enemigo6->c] == 0 && enemigo_arriba6 == false)
+		enemigo6->f++;
+	else if (Tablero[enemigo6->f - 1][enemigo6->c] == 0) {
+		enemigo_arriba6 = true;
+		enemigo6->f--;
+	}
+	else {
+		enemigo_arriba6 = false;
+	}
+}
+void Mostrar_Personaje(Personaje *mipersonaje)
+{
+	Console::SetCursorPosition(mipersonaje->c, mipersonaje->f);
+	Console::ForegroundColor = ConsoleColor::Yellow;
+	cout << mipersonaje->r;
+}
+void Mostrar_Enemigo(Enemigo *elenemigo)
+{
+	Console::SetCursorPosition(elenemigo->c, elenemigo->f);
+	Console::ForegroundColor = ConsoleColor::Magenta;
+	cout << elenemigo->o;
+}
+
+void Mostrar_Tablero(int Tablero[25][80])
+{
+	for (int f = 0; f < 25; f++)
+	{
+		for (int c = 0; c < 80; c++)
+		{
+			Console::SetCursorPosition(c, f);
+			if (Tablero[f][c] == 1)
+				cout << (char)219;
+			if (Tablero[f][c] == 0)
+				cout << " ";
+		}
+	}
+}
+
+
+bool Fin_del_juego(Enemigo *elenemigo, Enemigo *enemigo2, Enemigo *enemigo3, Enemigo *enemigo4, Enemigo *enemigo5, Enemigo *enemigo6, Salida *lasalida, Personaje *mipersonaje, bool Conseguir_llaves)
+{
+	if (mipersonaje->f == elenemigo->f && elenemigo->c == mipersonaje->c || mipersonaje->f == enemigo2->f && enemigo2->c == mipersonaje->c || mipersonaje->f == enemigo3->f && enemigo3->c == mipersonaje->c || mipersonaje->f == enemigo4->f && enemigo4->c == mipersonaje->c || mipersonaje->f == enemigo5->f && enemigo5->c == mipersonaje->c || mipersonaje->f == enemigo6->f && enemigo6->c == mipersonaje->c) {
+
+		{
+			Console::ForegroundColor = ConsoleColor::Magenta;
+			Console::SetCursorPosition(15, 20);
+			cout << " Fin del Juego ..... Pulse una tecla para continuar .";
+			_getch();
+			return true;
+		}
+	}
+	else
+	{
+		if (mipersonaje->f == lasalida->f && lasalida->c == mipersonaje->c)
+		{
+			if (Conseguir_llaves = true)
+			{
+				cout << " Nivel Completado !";
+				_getch();
+				return true;
+			}
+
+		}
+	}
+	return false;
+}
+
+
+
+
+int main()
+{
+	int Tablero[25][80] = { { 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 },
+	{ 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0 } };
+	Personaje *mipersonaje = new Personaje();
+	mipersonaje->f = mipersonaje->c = 2;
+	mipersonaje->r = (char)219;
+
+	Llaves *lasllaves = new Llaves;
+	lasllaves->f = 12, lasllaves->c = 27;
+	lasllaves->k = (char)63;
+
+	Salida *lasalida = new Salida;
+	lasalida->f = 11, lasalida->c = 68;
+	lasalida->q = (char)178;
+
+	int *Vidas;
+	Vidas = new int;
+	*Vidas = 3;
+	Enemigo *elenemigo = new Enemigo();
+	elenemigo->f = 6; elenemigo->c = 5;
+	elenemigo->o = (char)2;
+
+	Enemigo*enemigo2 = new Enemigo();
+	enemigo2->c = 29; enemigo2->f = 11;
+	enemigo2->o = (char)2;
+
+	Enemigo*enemigo3 = new Enemigo();
+	enemigo3->c =39 ; enemigo3->f = 11;
+	enemigo3->o = (char)2;
+
+	Enemigo*enemigo4 = new Enemigo();
+	enemigo4->c = 49; enemigo4->f = 11;
+	enemigo4->o = (char)2;
+
+	Enemigo*enemigo5 = new Enemigo();
+	enemigo5->c = 59; enemigo5->f = 11;
+	enemigo5->o = (char)2;
+	*Vidas = 3;
+
+	Enemigo*enemigo6 = new Enemigo();
+	enemigo6->c = 19; enemigo6->f = 20;
+	enemigo6->o = (char)2;
+
+	*Vidas = 3;
+	bool Conseguir_llaves;
+	Conseguir_llaves = false;
+	Console::WindowWidth = 82;
+	Console::CursorVisible = false;
+	Console::ForegroundColor = ConsoleColor::Red;
+
+	bool enemigo_arriba = false;
+	bool enemigo_arriba2 = false;
+	bool enemigo_arriba3 = false;
+	bool enemigo_arriba4 = false;
+	bool enemigo_arriba5 = false;
+	bool enemigo_arriba6 = false;
+	Mostrar_Tablero(Tablero);
+	bool acabo = false;
+	while (!Fin_del_juego(elenemigo, enemigo2, enemigo3, enemigo4, enemigo5, enemigo6, lasalida, mipersonaje, Conseguir_llaves))
+	{
+
+		Borrar_Enemigo(elenemigo);
+		Borrar_Enemigo(enemigo2);
+		Borrar_Enemigo(enemigo3);
+		Borrar_Enemigo(enemigo4);
+		Borrar_Enemigo(enemigo5);
+		Borrar_Enemigo(enemigo6);
+
+		Movimiento_Enemigo(Tablero, elenemigo, enemigo_arriba);
+		Movimiento_Enemigo2(Tablero, enemigo2, enemigo_arriba2);
+		Movimiento_Enemigo(Tablero, enemigo3, enemigo_arriba3);
+		Movimiento_Enemigo(Tablero, enemigo4, enemigo_arriba4);
+		Movimiento_Enemigo(Tablero, enemigo5, enemigo_arriba5);
+		Movimiento_Enemigo(Tablero, enemigo6, enemigo_arriba6);
+		if (kbhit())
+		{
+			Borrar_Personaje(mipersonaje);
+			char tecla = getch();
+			Mover_Personaje(Tablero, mipersonaje, tecla);
+
+		}
+		//acabo == Fin_del_juego(Tablero, elenemigo, mipersonaje);
+		Funciones_de_la__llave(lasllaves, lasalida, mipersonaje, Conseguir_llaves);
+		Mostrar_Personaje(mipersonaje);
+		Mostrar_Enemigo(elenemigo);
+		Mostrar_Enemigo(enemigo2);
+		Mostrar_Enemigo(enemigo3);
+		Mostrar_Enemigo(enemigo4);
+		Mostrar_Enemigo(enemigo5);
+		Mostrar_Enemigo(enemigo6);
+		//Mostar_llaves(lasllaves);
+		Mostar_Salida(lasalida);
+		Borrar_Llaves(Tablero, lasllaves, mipersonaje);
+		_sleep(100);
+	}
+	getch();
+	return 0;
+}
